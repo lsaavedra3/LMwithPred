@@ -9,7 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 #Introduction  
-This is a linear model with prediction problems. It predicts strenght scores using data from the following website.  
+This is a linear model with prediction problems. It predicts strenght scores using data from the following website.    
+
+$H_O$: There is NO difference between these models, they all work great.  
+$H_A$: There IS a difference in these models, one of them works beter than the other.  
+
+
+
 
 ```{r}
 data <- read.csv(file="http://onlinestatbook.com/case_studies_rvls/physical_strength/data.txt",sep="",header=TRUE) 
@@ -24,7 +30,8 @@ if(!require("rglwidget")) {install.packages("rglwidget");require("rglwidget")}
 require(knitr)
 require(ggplot)
 ```
-
+## Graphical Results
+We are going to be using a Numerical~Numerical template.
 
 ### Plot scatterplot
 
@@ -42,6 +49,8 @@ basicNN + geom_point()+geom_smooth(method=lm)
 ```{r}
 model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
+New=data.frame(GRIP=94,ARM=88)
+predict.lm(model.1,New, interval="prediction")
 ```
 
 ## Model 2
@@ -60,12 +69,23 @@ basicNN + geom_point()+geom_smooth(method=lm)
 ```{r}
 model.2 <- lm(SIMS~GRIP,data=data)
 summary.lm(model.2)
+New=data.frame(GRIP=94, ARM=88)
+predict.lm(model.2,New,interval="predict")
+
+
 ```
+## Model 3
   
 ```{r}
 model.3 <- lm(SIMS~ARM+GRIP,data=data)
 summary.lm(model.3)
+New=data.frame(GRIP=94, ARM=88)
+predict.lm(model.3,New,interval="predict")
 ```
 
-
+```{r}
+anova(model.3,model.2)
+```
+As we can see by this Anova chart, there is a difference in the models because model 1 is higher than the other 2 models
+## Conclusion
 
