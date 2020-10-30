@@ -30,8 +30,8 @@ if(!require("rglwidget")) {install.packages("rglwidget");require("rglwidget")}
 require(knitr)
 require(ggplot)
 ```
-## Graphical Results
-We are going to be using a Numerical~Numerical template.
+## Graphical Results  
+We are going to be using a Numerical~Numerical template.  
 
 ### Plot scatterplot
 
@@ -39,6 +39,7 @@ We are going to be using a Numerical~Numerical template.
 plot(SIMS~ARM,data=data)
 ```
 
+This scatter plot shows us the physical strenght of some people, we are trying to analyze which chart is better for the type of information we are trying to find, we input the ARM and the SIMS data.  
 ```{r}
 basicNN <- ggplot(data,aes(y=SIMS, x=ARM))
 ```
@@ -46,13 +47,15 @@ basicNN <- ggplot(data,aes(y=SIMS, x=ARM))
 basicNN + geom_point()+geom_smooth(method=lm)
 ```
   
+In this gg plot, we wanted to see a more complex view of the results.   
+
 ```{r}
 model.1 <- lm(SIMS~ARM,data=data)
 summary.lm(model.1)
 New=data.frame(GRIP=94,ARM=88)
 predict.lm(model.1,New, interval="prediction")
 ```
-
+We used the predict option and found our  Adjusted R-squared to be:  0.467  
 ## Model 2
 
 ```{r}
@@ -74,6 +77,8 @@ predict.lm(model.2,New,interval="predict")
 
 
 ```
+
+For Model 2, our adjusted Rsquare was of:0.4053, which makes it less than the first model.  
 ## Model 3
   
 ```{r}
@@ -83,9 +88,10 @@ New=data.frame(GRIP=94, ARM=88)
 predict.lm(model.3,New,interval="predict")
 ```
 
+
 ```{r}
 anova(model.3,model.2)
 ```
-As we can see by this Anova chart, there is a difference in the models because model 1 is higher than the other 2 models
-## Conclusion
-
+In this last Analysis we have added Model 1 and Model 3,using anova. The value that it gives us is of 1.495e-09. By adding these results we conclude that the first model is a better model of the three because is Rsuare is more than 1.  
+## Conclusion    
+We reject the Null Hypothesis because There IS a difference in these regresion   models, Model 1 works better than the other two.    
