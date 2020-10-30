@@ -45,10 +45,23 @@ summary.lm(model.1)
 ```
 
 
+```{r}
+plot(SIMS~GRIP,data=data)
+```
 
 
+```{r}
+basicNN <- ggplot(data,aes(y=SIMS, x=GRIP))
+```
+```{r}
+basicNN + geom_point()+geom_smooth(method=lm)
+```
 
-
+  
+```{r}
+model.1 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.1)
+```
 
 
 
