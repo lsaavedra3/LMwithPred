@@ -1,0 +1,19 @@
+---
+title: "LMwithPred"
+author: "Lelainy Saavedra"
+date: "10/29/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#Introduction  
+This is a linear model with prediction problems. It predicts strenght scores using data from the following website.  
+
+```{r}
+data <- read.csv(file="http://onlinestatbook.com/case_studies_rvls/physical_strength/data.txt",sep="",header=TRUE) 
+
+```
+
+
