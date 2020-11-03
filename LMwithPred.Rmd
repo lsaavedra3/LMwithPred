@@ -95,5 +95,5 @@ anova(model.3,model.2)
 In this last Analysis we have added Model 1 and Model 3,using anova. The value that it gives us is of 1.495e-09. By adding these results we conclude that the first model is a better model of the three because is Rsquare is more than 1.  
 
 ## Conclusion    
-We reject the Null Hypothesis because There IS a difference in these regression   models, Model 1 Rsquare value is   0.467, Model 2 Rsquare value 0.4053,and for model 3 where the first two were combined gave us an Rsquare value of 1.495e-09. since model 1 is the smallest one that means that model 1 works better than the other two, the Rsquare can never be bigger than 1.  
+We reject the Null Hypothesis because There IS a difference in these regression   models, Model 1 Rsquare value is   0.467, Model 2 Rsquare value 0.4053,and for model 3 where the first two were combined gave us an Rsquare value of 1.495e-09. since model 1 is the highest that means that model 1 works better than the other two, the Rsquare can never be bigger than 1, but the model with highest adjusted R square is always best.  
 
